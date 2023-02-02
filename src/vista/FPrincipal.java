@@ -57,6 +57,7 @@ public class FPrincipal extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
 
         jMenuItem1.setText("Rojo");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,8 +184,13 @@ public class FPrincipal extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox1)))
-                        .addGap(46, 46, 46)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton1)))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -201,7 +207,11 @@ public class FPrincipal extends javax.swing.JFrame {
                     .addComponent(bOrdena, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bOpera, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(bCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jRadioButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,9 +262,13 @@ public class FPrincipal extends javax.swing.JFrame {
      * @param evt es el evento
      */
     private void bCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCuadradoActionPerformed
-        FQuadratMagic cuadrado = new FQuadratMagic();
-        cuadrado.setVisible(true);
-        this.dispose();
+        if (jRadioButton1.isSelected()) {
+            FQuadratMagic cuadrado = new FQuadratMagic();
+            cuadrado.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Tienes que seleccionar el radioButton");
+        }
     }//GEN-LAST:event_bCuadradoActionPerformed
     /**
      * Cierra este formulario y abre FMajorMenor
@@ -350,15 +364,15 @@ public class FPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jCheckBox1.isSelected()){
+        if (jCheckBox1.isSelected()) {
             jPanel2.setBackground(Color.green);
-        }
-        else {
+        } else {
             jPanel2.setBackground(Color.blue);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * Coge una imágen y la combirte en un icono
+     *
      * @return el icono
      */
     @Override
@@ -418,6 +432,7 @@ public class FPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
